@@ -8,12 +8,12 @@ In this technical article I will show how to extract KPI definitons from the [Az
 First I need a Purview account created. I can use the [this tutorial](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) describing in detail how to create a new Azure Purview catalog in the Azure portal. 
 Next, I need to populate the business glossary in Azure Purview with some relevant terms, as described in [this tutorial](https://docs.microsoft.com/en-us/azure/purview/how-to-create-import-export-glossary). For this scenario to work, I will make sure the terms I am defining in the business glossary represent measures in my Power BI semantic model(dataset), and the names of the terms match the names of the Power BI measures. 
 
-![Glossary terms example](images/glossary_1.PNG)
+![Glossary terms example](images/glossary_1.png)
 
 For exporting the glossary terms from Purview onto my local machine I have a few options:
 
 **Option 1** Manually from the Purview Studio Portal:
-![Glossary terms export option](images/glossary_export.PNG)
+![Glossary terms export option](images/glossary_export.png)
 Please note I need to select the terms I wish to export, or Select All, before the Export terms option becomes clickable. 
 
 **Option 2** Using the Purview Python CLI 
@@ -78,11 +78,11 @@ In this section I will enhance the Power BI semanting model by updating the meas
 
 First I will open the PBIX file containig the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
 
-![Start Tabular Editor](images/tabular_editor_1.PNG)
+![Start Tabular Editor](images/tabular_editor_1.png)
 
 In Tabular Editor, I need to go to the Advance Scripting section
 
-![Tabular Editor Advanced Scripting](images/tabular_editor_2.PNG)
+![Tabular Editor Advanced Scripting](images/tabular_editor_2.png)
 
 and run the following script: 
 
@@ -117,8 +117,21 @@ Please note the position of the name, description and status fields may have to 
 
 Once the script was succesfully executed, I need to save the changes back to the model:
 
-![Tabular Editor Save Model](images/tabular_editor_3.PNG).
+![Tabular Editor Save Model](images/tabular_editor_3.png)
 
 Going back to Power BI Desktop, I should now be able to see the updated descriptions for the relevant measures:
 
-![Power BI Desktop updated measure](images/pbi_desktop.PNG).
+![Power BI Desktop updated measure](images/pbi_desktop.png)
+
+Optionally, in Tabular Editor I could save the script as a Custom Action, to make it easy to update the measure definitions on a regular basis without having to remember the script.
+
+Save script as custom action:
+
+![Tabular Editor Save Custom Action](images/tabular_editor_4.png)
+
+Use saved custom action:
+
+![Tabular Editor Use Custom Action](images/tabular_editor_5.png)
+
+
+## References: 
