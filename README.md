@@ -1,11 +1,11 @@
 # Enhance PBI semantic model with glossary terms from Azure Purview
 
-In this technical article I will show how to extract KPI definitons from the [Azure Purview Business Glossary](https://docs.microsoft.com/en-us/azure/purview/concept-business-glossary) and use them to enhance a Power BI semantic model, using the brilliant [Advanced Scripting](https://docs.tabulareditor.com/te2/Advanced-Scripting.html) feature available in [Tabular Editor](https://docs.tabulareditor.com/index.html). 
+In this technical article I will show how to extract KPI definitions from the [Azure Purview Business Glossary](https://docs.microsoft.com/en-us/azure/purview/concept-business-glossary) and use them to enhance a Power BI semantic model, using the brilliant [Advanced Scripting](https://docs.tabulareditor.com/te2/Advanced-Scripting.html) feature available in [Tabular Editor](https://docs.tabulareditor.com/index.html). 
 
 
 ## Extract the glossary terms from Azure Purview
 
-First I need a Purview account created. I can use the [this tutorial](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) describing in detail how to create a new Azure Purview catalog in the Azure portal. 
+First, I need a Purview account created. I can use the [this tutorial](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) describing in detail how to create a new Azure Purview catalog in the Azure portal. 
 Next, I need to populate the business glossary in Azure Purview with some relevant terms, as described in [this tutorial](https://docs.microsoft.com/en-us/azure/purview/how-to-create-import-export-glossary). For this scenario to work, I will make sure the terms I am defining in the business glossary represent measures in my Power BI semantic model(dataset), and the names of the terms match the names of the Power BI measures. 
 
 ![Glossary terms example](images/glossary_1.png)
@@ -73,11 +73,11 @@ I can now extend these scripts to schedule the export of glossary terms on a reg
 **Option 3** Using the [Purview API](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossary-terms)
 
 
-## Enhance the Power BI semanting model
+## Enhance the Power BI semantic model
 
-In this section I will enhance the Power BI semanting model by updating the measure descriptions with the term descripions form Azure Purview.
+In this section I will enhance the Power BI semantic model by updating the measure descriptions with the term descripions form Azure Purview.
 
-First I will open the PBIX file containig the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
+First I will open the PBIX file containing the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
 
 ![Start Tabular Editor](images/tabular_editor_1.png)
 
@@ -116,7 +116,7 @@ foreach(var row in kpiRows.Skip(1))
 
 Please note the position of the name, description and status fields may have to be changed if using an input file with a different format. 
 
-Once the script was succesfully executed, I need to save the changes back to the model:
+Once the script was successfully executed, I need to save the changes back to the model:
 
 ![Tabular Editor Save Model](images/tabular_editor_3.png)
 
