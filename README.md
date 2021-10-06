@@ -19,7 +19,7 @@ Please note I need to select the terms I wish to export, or Select All, before t
 
 **Option 2** Using the Purview Python CLI 
 
-For this option I will use the [Purview Python CLI](https://https://aka.ms/purviewcli). Please note the purviewcli package works on the following Python versions, one of which I will need to have installed for the following script to work:
+For this option I will use the [Purview Python CLI](https://aka.ms/purviewcli). Please note the purviewcli package works on the following Python versions, one of which I will need to have installed for the following script to work:
 
 * Python 3.6+
 * Python 3.7+
