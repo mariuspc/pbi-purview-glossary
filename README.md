@@ -137,4 +137,4 @@ Use saved custom action:
 
 ## Additional resources
 - [Using scripts in Tabular Editor](https://www.youtube.com/watch?v=EHs5r3XCkO8)
-- [CLI wrapper to Azure Purview APIs (purviewcli)]https://www.youtube.com/watch?v=ycr1G5iMM6U)
+- [CLI wrapper to Azure Purview APIs (purviewcli)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
