@@ -13,6 +13,7 @@ Next, I need to populate the business glossary in Azure Purview with some releva
 For exporting the glossary terms from Purview onto my local machine I have a few options:
 
 **Option 1** Manually from the Purview Studio Portal:
+
 ![Glossary terms export option](images/glossary_export.png)
 Please note I need to select the terms I wish to export, or Select All, before the Export terms option becomes clickable. 
 
@@ -134,4 +135,6 @@ Use saved custom action:
 ![Tabular Editor Use Custom Action](images/tabular_editor_5.png)
 
 
-## References: 
+## Additional resources
+- [Using scripts in Tabular Editor](https://www.youtube.com/watch?v=EHs5r3XCkO8)
+- [CLI wrapper to Azure Purview APIs (purviewcli)]https://www.youtube.com/watch?v=ycr1G5iMM6U)
