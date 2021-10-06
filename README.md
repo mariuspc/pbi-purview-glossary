@@ -19,14 +19,14 @@ Please note I need to select the terms I wish to export, or Select All, before t
 
 **Option 2** Using the Purview Python CLI 
 
-For this option I will use the [Purview Python CLI](https://aka.ms/purviewcli). Please note the purviewcli package works on the following Python versions, one of which I will need to have installed for the following script to work:
+For this option I can use the [Purview Python CLI](https://aka.ms/purviewcli). Please note the purviewcli package works on the following Python versions, one of which needs to be installed for the following script to work:
 
 * Python 3.6+
 * Python 3.7+
 * Python 3.8+
 * Python 3.9+
 
-Since I am running all this on a Windows 10 machine, I choose to use a Power Shell script to automate the CLI commands. 
+Since I am running all this on a Windows 10 machine, I decided to use a Power Shell script to automate the CLI commands. 
 
 ```
 Purview KPI Download.ps1
@@ -77,7 +77,7 @@ I can now extend these scripts to schedule the export of glossary terms on a reg
 
 In this section I will enhance the Power BI semantic model by updating the measure descriptions with the term descripions form Azure Purview.
 
-First I will open the PBIX file containing the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
+First I need to open the PBIX file containing the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
 
 ![Start Tabular Editor](images/tabular_editor_1.png)
 
@@ -114,13 +114,13 @@ foreach(var row in kpiRows.Skip(1))
 }
 ```
 
-Please note the position of the name, description and status fields may have to be changed if using an input file with a different format. 
+The position of the name, description and status fields may have to be changed if using an input file with a different format. 
 
 Once the script was successfully executed, I need to save the changes back to the model:
 
 ![Tabular Editor Save Model](images/tabular_editor_3.png)
 
-Going back to Power BI Desktop, I should now be able to see the updated descriptions for the relevant measures:
+Going back to Power BI Desktop, I can now see the updated descriptions for the relevant measures:
 
 ![Power BI Desktop updated measure](images/pbi_desktop.png)
 
