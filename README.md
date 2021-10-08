@@ -77,6 +77,8 @@ I can now extend these scripts to schedule the export of glossary terms on a reg
 
 In this section I will enhance the Power BI semantic model by updating the measure descriptions with the term descripions form Azure Purview.
 
+**Option 1** Using Tabular Editor to update the dataset in Power BI Desktop
+
 First I need to open the PBIX file containing the model I wish to enhance. Next, I need to start Tabular Editor, which I can do from the External Tools menu of Power BI Desktop.
 
 ![Start Tabular Editor](images/tabular_editor_1.png)
@@ -86,7 +88,7 @@ In Tabular Editor, I need to go to the Advance Scripting section
 ![Tabular Editor Advanced Scripting](images/tabular_editor_2.png)
 
 and run the following script: 
-
+<a name="adv-script"></a>
 ```
 //Location of the KPIexport.csv file previously exported
 var KPIDefinition = ReadFile("C:\\scripts\\KPIexport.csv");
@@ -134,6 +136,20 @@ Use saved custom action:
 
 ![Tabular Editor Use Custom Action](images/tabular_editor_5.png)
 
+**Option 2** Using the [command line](https://docs.tabulareditor.com/te2/Command-line-Options.html) to update the dataset on the Power BI Premium capacity
+
+I can now execute the following PowerShell command:
+
+```
+PS> $p = Start-Process -filePath "C:\location\TabularEditor.exe" -Wait -NoNewWindow -PassThru -ArgumentList "`"Provider=MSOLAP;Data Source=powerbi://api.powerbi.com/v1.0/####/########;Persist Security Info=True;Impersonation Level=Impersonate`" Test-Model -S `"C:\scripts\updateSemanticModelWithGlossary.csx`" -D"
+```
+where:
+*  "C:\location\TabularEditor.exe" is the location where Tabular Editor is installed
+*  Data Source=powerbi://api.powerbi.com/v1.0/####/######## is the [XMLA endpoint](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools) of the Premium capacity where my dataset is. Service principal or Azure Active Directory can be used when connecting to the Power BI service
+*  Test-Model is the name of the dataset I am updating
+*  "C:\scripts\updateSemanticModelWithGlossary.csx" is [the script](#adv-script) previously introduced
+
+Please note the [following limitation](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools#enhanced-metadata) that currently exists when working with XMLA endpoints: “At this time, a write operation on a dataset authored in Power BI Desktop will prevent it from being downloaded back as a PBIX file. Be sure to retain your original PBIX file.”. Basically this means that if you use the XMLA endpoints to update a dataset on Power BI Premium, you will no longer be able to download that dataset as a PBIX and open in Power BI Desktop
 
 ## Additional resources
 - [Using scripts in Tabular Editor](https://www.youtube.com/watch?v=EHs5r3XCkO8)
