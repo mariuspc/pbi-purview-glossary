@@ -5,7 +5,7 @@ In this technical article I will show how to extract KPI definitions from the [A
 
 ## Extract the glossary terms from Azure Purview
 
-First, I need a Purview account created. I can use the [this tutorial](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) describing in detail how to create a new Azure Purview catalog in the Azure portal. 
+First, I need a Purview account created. I can use [this tutorial](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) describing in detail how to create a new Azure Purview catalog in the Azure portal. 
 Next, I need to populate the business glossary in Azure Purview with some relevant terms, as described in [this tutorial](https://docs.microsoft.com/en-us/azure/purview/how-to-create-import-export-glossary). For this scenario to work, I will make sure the terms I am defining in the business glossary represent measures in my Power BI semantic model(dataset), and the names of the terms match the names of the Power BI measures. 
 
 ![Glossary terms example](images/glossary_1.png)
@@ -149,7 +149,7 @@ where:
 *  Test-Model is the name of the dataset I am updating
 *  "C:\scripts\updateSemanticModelWithGlossary.csx" is [the script](#adv-script) previously introduced
 
-Please note the [following limitation](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools#enhanced-metadata) that currently exists when working with XMLA endpoints: “At this time, a write operation on a dataset authored in Power BI Desktop will prevent it from being downloaded back as a PBIX file. Be sure to retain your original PBIX file.”. Basically this means that if you use the XMLA endpoints to update a dataset on Power BI Premium, you will no longer be able to download that dataset as a PBIX and open in Power BI Desktop
+Please take note of the [following limitation](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools#enhanced-metadata) that currently exists when working with XMLA endpoints: “At this time, a write operation on a dataset authored in Power BI Desktop will prevent it from being downloaded back as a PBIX file. Be sure to retain your original PBIX file.”. Basically, this means that if I use the XMLA endpoint to update a dataset on Power BI Premium, I will no longer be able to download that dataset as a PBIX file and open it in Power BI Desktop
 
 ## Additional resources
 - [Using scripts in Tabular Editor](https://www.youtube.com/watch?v=EHs5r3XCkO8)
